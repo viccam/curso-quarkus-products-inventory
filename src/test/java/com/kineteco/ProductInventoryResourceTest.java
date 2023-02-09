@@ -22,7 +22,7 @@ public class ProductInventoryResourceTest {
     ProductInventoryService productInventoryService;
 
     //Objeto de respuesta
-    Response rs = new ResponseImpl();
+    ProductInventory productInventory;
 
     @BeforeEach
     void setUp() {
@@ -32,23 +32,19 @@ public class ProductInventoryResourceTest {
         //Se inyectan los mock a la clase que se desea probar
         productInventoryResource = new ProductInventoryResource(productInventoryService);
 
-        ProductInventory product = ProductInventory.builder()
+        productInventory = ProductInventory.builder()
                 .name("victor")
                 .sku("123")
                 .build();
-
-        rs = Response.ok(product).build();
-
-
     }
 
     @Test
-    public void testHelloByVictorJson(){
+    public void testInventoryJson(){
 
         //Indica al mock que responder cuando se consume metodo getBySku
-        Mockito.when(productInventoryService.getBySku("123")).thenReturn(rs);
+        Mockito.when(productInventoryService.getBySku("KE180")).thenReturn(productInventory);
         //Consume metodo de clase a testear
-        Response rsHelloByVictorJson = productInventoryResource.helloByVictorJson();
+        Response rsHelloByVictorJson = productInventoryResource.inventory();
         System.out.print(((ProductInventory) rsHelloByVictorJson.getEntity()).getName());
         Assertions.assertEquals("victor", ((ProductInventory) rsHelloByVictorJson.getEntity()).getName());
     }

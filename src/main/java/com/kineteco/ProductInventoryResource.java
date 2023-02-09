@@ -10,7 +10,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Path("/hello")
+@Path("/products")
 public class ProductInventoryResource {
 
     @Inject
@@ -23,8 +23,22 @@ public class ProductInventoryResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
-        return "Hello from RESTEasy Reactive";
+        return "Product Inventory Service is up!";
     }
+
+    /**
+     *
+     * @return Response: objeto de tipo response permite cambiar el status code
+     */
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("KE180")
+    public Response inventory() {
+        ProductInventory productInventory = productInventoryService.getBySku("KE180");
+        return Response.ok(productInventory).build();
+    }
+
+
 
 
     @GET
@@ -34,16 +48,5 @@ public class ProductInventoryResource {
         return "Hello from RESTEasy Reactive path 123";
     }
 
-    /**
-     *
-     * @return Response: objeto de tipo response permite cambiar el status code
-     */
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("123/json")
-    public Response helloByVictorJson() {
 
-        Response response =  productInventoryService.getBySku("123");
-        return response;
-    }
 }

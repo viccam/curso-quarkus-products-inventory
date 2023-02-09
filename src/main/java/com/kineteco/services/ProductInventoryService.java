@@ -1,9 +1,10 @@
 package com.kineteco.services;
 
-import javax.ws.rs.core.Response;
+import com.kineteco.model.ProductInventory;
+
 
 public interface ProductInventoryService {
 
-    public Response getBySku(String sku);
+    public ProductInventory getBySku(String sku);
 
 }

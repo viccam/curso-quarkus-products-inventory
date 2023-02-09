@@ -1,10 +1,14 @@
 {
-  "sku": "123",
+  "sku": "KE180",
   "category": null,
   "name": "Carro",
   "quantity": 0,
-  "powerWatts": 0,
-  "footPrint": 0.0,
+  "powerWatts": null,
+  "footprint": null,
   "manufacturingCost": null,
-  "price": null
+  "price": null,
+  "productLine": null,
+  "targetConsumer": null,
+  "productAvailability": null,
+  "unitsAvailable": 0
 }
