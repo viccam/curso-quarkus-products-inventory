@@ -1,0 +1,10 @@
+{
+  "sku": "123",
+  "category": null,
+  "name": "Carro",
+  "quantity": 0,
+  "powerWatts": 0,
+  "footPrint": 0.0,
+  "manufacturingCost": null,
+  "price": null
+}
